@@ -1,0 +1,215 @@
+main {
+    position: relative;
+    background-color: #fff;
+    width: clamp(300px, 50%, 800px);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: #e4e1e1;
+        top: 10%;
+        right: -15px;
+        bottom: -30px;
+        left: -15px;
+        z-index: -3;
+        border-radius: 40px;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        -ms-border-radius: 40px;
+        -o-border-radius: 40px;
+    }
+    
+    .criacao {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 10px;
+
+        svg {
+            cursor: pointer;
+            opacity: .4;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        button {
+            background-color: transparent;
+            margin-right: 10px;
+            border: 1px solid silver;
+            outline: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    }
+
+    .todos {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 15px;
+        border-block: 1px solid silver;
+        padding: 10px;
+
+        div {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+
+            &:hover span {
+                visibility: visible;
+            }
+
+            .checkbox {
+                position: relative;
+
+                input {
+                    position: absolute;
+                    height: 0px;
+                    width: 0px;
+                }
+
+                .check {
+                    position: absolute;
+                    height: 30px;
+                    width: 30px;
+                    cursor: pointer;
+                    border: 1px solid silver;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+
+                    &::after {
+                        display: none;
+                        content: "";
+                        position: absolute;
+                        left: 10px;
+                        top: 2px;
+                        width: 9px;
+                        height: 18px;
+                        border: solid #25b325;
+                        border-width: 0px 2px 2px 0px;
+                        transform: rotate(45deg);
+                        -webkit-transform: rotate(45deg);
+                        -moz-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        -o-transform: rotate(45deg);
+                    }
+                }
+
+                input:checked + .check::after {
+                    display: block;
+                }
+            }
+
+            p {
+                flex: 1;
+                color: #4b4b4b;
+                font-size: 1.2rem;
+                cursor: pointer;
+                user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                transition: text-decoration 300ms, opacity 600ms ease-in-out;
+                -webkit-transition: text-decoration 300ms, opacity 600ms ease-in-out;
+                -moz-transition: text-decoration 300ms, opacity 600ms ease-in-out;
+                -ms-transition: text-decoration 300ms, opacity 600ms ease-in-out;
+                -o-transition: text-decoration 300ms, opacity 600ms ease-in-out;
+                                                
+                &.concluida {
+                    text-decoration: line-through;
+                    opacity: .4;
+                }
+            }
+
+            .remover {
+                visibility: hidden;
+                margin-right: 15px;
+                color: #9f3c3c;
+                font-size: 1.2rem;
+                padding: 4px 8px;
+                cursor: pointer;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+        }
+
+    }
+
+    .filtros {
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        padding: 10px;
+        font-size: .9rem;
+        position: relative;
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            top: 96%;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        }
+        
+        &::before {
+            right: 4px;
+            left: 4px;
+            bottom: -4px;
+            z-index: -1;
+        }
+        
+        &::after {
+            right: 6px;
+            left: 6px;
+            bottom: -8px;
+            z-index: -2;
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            a {
+                text-decoration: none;
+                color: #4b4b4b;
+                padding: 3px 7px;
+                cursor: pointer;
+            }
+
+            .active {
+                border: 1px solid silver;
+                border-radius: 3px;
+            }
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
