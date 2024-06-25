@@ -85,7 +85,7 @@ const Todos: React.FC<TodosProps> = ({ filter }) => {
         setTodos(todos.map(todo => ({ ...todo, isDone: !concluidas })));
     };
 
-    const toggleTodo = (id: string) => {
+    const toggleTodo = (id: string): void => {
         setTodos(prevTodos => 
             prevTodos.map(todo => 
                 todo.id === id ? { ...todo, isDone: !todo.isDone } : todo));
@@ -101,9 +101,9 @@ const Todos: React.FC<TodosProps> = ({ filter }) => {
     };
 
     // Para mostrar o botão de limpar tarefas concluidas
-    const temTodosConcluidas = todos.some(todo => todo.isDone);
+    const temTodosConcluidas: boolean = todos.some(todo => todo.isDone);
 
-    const filteredTodos = todos.filter(todo => {
+    const filteredTodos: Todo[] = todos.filter(todo => {
         if (filter === 'active') return !todo.isDone;
         if (filter === 'completed') return todo.isDone;
         return true;
